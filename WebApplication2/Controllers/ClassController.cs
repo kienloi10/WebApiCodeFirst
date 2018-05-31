@@ -20,10 +20,8 @@ namespace WebApplication2.Controllers
 		
 
 		[HttpGet]
-		public IHttpActionResult GetAll()
+		public IHttpActionResult GetAllLop()
 		{
-
-            var listsvs = this._db.Students.Where(Select );
                 var listLops = this._db.Lops.Select(x => new ClassModel()
                 {
                     Id = x.Id,
@@ -31,12 +29,20 @@ namespace WebApplication2.Controllers
                     TenLop = x.TenLop
 
                 });
-            
-                _
-
 			return Ok(listLops);
 		}
 
-		
-	}
+        [HttpGet]
+        public IHttpActionResult GetAllSV()
+        {
+            var listsvs = this._db.Students.Select(x => new StudentModel()
+            {
+                MaSV = x.MSSV,
+                HoTenSV = x.HoTen,
+                DiaChi = x.DiaChi
+
+            });
+            return Ok(listsvs);
+        }
+    }
 }
