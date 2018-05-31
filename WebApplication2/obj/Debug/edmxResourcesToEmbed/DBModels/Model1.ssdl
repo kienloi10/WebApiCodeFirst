@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Lop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="malop" Type="nvarchar(max)" />
+    <Property Name="tenlop" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Sinhvien">
+    <Key>
+      <PropertyRef Name="mssv" />
+    </Key>
+    <Property Name="HoTen" Type="nvarchar(max)" />
+    <Property Name="NTSN" Type="datetime" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="mssv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lop_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Sinhvien_Lop">
+    <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+    <End Role="Sinhvien" Type="Self.Sinhvien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sinhvien">
+        <PropertyRef Name="lop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SampleModelStoreContainer">
+    <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sinhvien" EntityType="Self.Sinhvien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Sinhvien_Lop" Association="Self.FK_Sinhvien_Lop">
+      <End Role="Lop" EntitySet="Lop" />
+      <End Role="Sinhvien" EntitySet="Sinhvien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

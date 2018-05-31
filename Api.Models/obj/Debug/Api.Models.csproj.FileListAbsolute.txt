@@ -1,0 +1,27 @@
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\Api.Models.dll.config
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\Api.Models.dll
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\Api.Models.pdb
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\EntityFramework.dll
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\EntityFramework.xml
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\obj\Debug\Api.Models.csprojResolveAssemblyReference.cache
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\obj\Debug\Api.Models.csproj.CoreCompileInputs.cache
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\obj\Debug\Api.Models.dll
+C:\Users\Asus Prime\source\repos\WebApplication2\Api.Models\obj\Debug\Api.Models.pdb
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Api.Models.dll.config
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Api.Models.dll
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Api.Models.pdb
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\EntityFramework.dll
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\EntityFramework.xml
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\obj\Debug\Api.Models.csprojResolveAssemblyReference.cache
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\obj\Debug\Api.Models.csproj.CoreCompileInputs.cache
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\obj\Debug\Api.Models.csproj.CopyComplete
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\obj\Debug\Api.Models.dll
+D:\Thuc_tap_janeto\C#\Phuc\Api.Models\obj\Debug\Api.Models.pdb
