@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="ApiDBContext.cs" />
     <Compile Include="ChuNhiem.cs" />
-    <Compile Include="Course.cs" />
     <Compile Include="GiaoVien.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Lop.cs" />

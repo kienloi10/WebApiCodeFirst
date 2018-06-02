@@ -12,6 +12,10 @@ namespace Api.Models
         public string TenLop { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+
+        public virtual GiaoVien GVCN { get; set; }
         public virtual ICollection<GiaoVien> GiaoViens { get; set; }
+
+       
     }
 }

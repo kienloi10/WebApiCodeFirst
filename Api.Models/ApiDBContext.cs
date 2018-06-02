@@ -27,7 +27,7 @@ namespace Api.Models
 		
 		//public DbSet<MonHoc> Mon { get; set; }
 		//public DbSet<SinhVienMonHoc> SinhVienMonHocs { get; set; }
-        public DbSet<ChuNhiem> ChuNhiems { get; set; }
+        //public DbSet<ChuNhiem> ChuNhiems { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Lop> Lops { get; set; }
         public DbSet<GiaoVien> GiaoViens { get; set; }

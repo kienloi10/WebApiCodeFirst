@@ -8,7 +8,7 @@ namespace WebApplication2.ViewModels
 {
     public class StudentModel
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string MaSV { get; set; }
         public string HoTenSV { get; set; }
         public string DiaChi { get; set; }
@@ -23,14 +23,14 @@ namespace WebApplication2.ViewModels
 
         }
 
-        public class CreateClassModel
+        public class CreateStudentModel
         {
             public string MaSV { get; set; }
             public string HoTenSV { get; set; }
             public string DiaChi { get; set; }
         }
 
-        public class UpdateClassModel : CreateClassModel
+        public class UpdateClassModel : CreateStudentModel
         {
             public int Id { get; set; }
         }
