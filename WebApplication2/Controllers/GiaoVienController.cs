@@ -87,6 +87,35 @@ namespace WebApplication2.Controllers
             return httpActionResult;
         }
 
+        [HttpPut]
+        public IHttpActionResult CapNhatGV(UpdateGiaoVienModel model)
+        {
+            IHttpActionResult httpActionResult;
+            ErrorModel errors = new ErrorModel();
+
+            GiaoVien gv = this._db.GiaoViens.FirstOrDefault(x => x.Id == model.Id);
+
+            if (gv == null)
+            {
+                errors.Add("Không tìm thấy gv");
+
+                httpActionResult = Ok(errors);
+            }
+            else
+            {
+                gv.HoTen = model.TenGV ?? model.TenGV;
+               
+
+                this._db.Entry(gv).State = System.Data.Entity.EntityState.Modified;
+
+                this._db.SaveChanges();
+
+                httpActionResult = Ok(new GiaoVienModel(gv));
+            }
+
+            return httpActionResult;
+        }
+
 
     }
 }

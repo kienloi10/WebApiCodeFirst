@@ -26,7 +26,7 @@ namespace WebApplication2.ViewModels
         public string TenGV { get; set; }
     }
 
-    public class UpdateGiaoVienModel : CreateClassModel
+    public class UpdateGiaoVienModel : CreateGiaoVienModel
     {
         public int Id { get; set; }
     }

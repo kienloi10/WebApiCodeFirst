@@ -30,7 +30,7 @@ namespace WebApplication2.ViewModels
             public string DiaChi { get; set; }
         }
 
-        public class UpdateClassModel : CreateStudentModel
+        public class UpdateStudentModel : CreateStudentModel
         {
             public int Id { get; set; }
         }

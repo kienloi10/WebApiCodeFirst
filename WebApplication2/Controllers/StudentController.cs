@@ -94,7 +94,35 @@ namespace WebApplication2.Controllers
             return httpActionResult;
         }
 
+        [HttpPut]
+        public IHttpActionResult CapNhatSV(UpdateStudentModel model)
+        {
+            IHttpActionResult httpActionResult;
+            ErrorModel errors = new ErrorModel();
 
+            Student sv = this._db.Students.FirstOrDefault(x => x.Id == model.Id);
+
+            if (sv == null)
+            {
+                errors.Add("Không tìm th?y sv");
+
+                httpActionResult = Ok(errors);
+            }
+            else
+            {
+                sv.MSSV = model.MaSV ?? model.MaSV;
+                sv.HoTen = model.HoTenSV ?? model.HoTenSV;
+                sv.DiaChi = model.DiaChi ?? model.DiaChi;
+
+                this._db.Entry(sv).State = System.Data.Entity.EntityState.Modified;
+
+                this._db.SaveChanges();
+
+                httpActionResult = Ok(new StudentModel(sv));
+            }
+
+            return httpActionResult;
+        }
 
 
     }
