@@ -55,6 +55,50 @@ namespace WebApplication2.Controllers
             return httpActionResult;
         }
 
+
+
+        /**
+        * @api [Post] /student/TaoSV Tạo 1 SV mới
+        * @apigroup SV
+        * @apiPermission none 
+        * 
+        * @apiParam [string] MSSV Mã của sv mới
+        * @apiParam [string] HoTen HoTen của sv mới
+        * @apiParam [string] DiaChi DiaChi của sv mới
+        * @apiParam [int] [SoLuongLop] 
+        * 
+        * @apiParamExample [json] Request-Example:
+        * {
+        *   MSSV:"N14DCCN043",
+        *   HoTen:"Dong Kien Loi",
+        *   DiaChi:"1 Nguyen Trai"
+        * }
+        * 
+        * @apiSuccess [string] MSSV Mã của sv vừa tạo
+        * @apiSuccess [string] HoTen Họ Tên của sv vừa tạo
+        * @apiSuccess [Id] Id của sv mới
+        * 
+        * @apiSuccessExample [json] Success-Response:
+        * {
+        *   Id:1,
+        *   MSSV:"N14DCCN043",
+        *   HoTen:"Dong Kien Loi",
+        *   DiaChi:"1 Nguyen Trai"
+        * 
+        * }
+        * 
+        * @apiError [400] (string[]) Error các mảng lỗi
+        * 
+        * @apiErrorExample {json}
+        * {
+        *   "Errors":[
+        *       MaSV là bat buoc,
+        *       TenSV la bat buoc
+        *   
+        *   ]
+        * }
+
+        * */
         [HttpPost]
         public IHttpActionResult TaoSV(CreateStudentModel model)
         {

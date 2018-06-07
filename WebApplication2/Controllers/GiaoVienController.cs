@@ -52,7 +52,40 @@ namespace WebApplication2.Controllers
             return httpActionResult;
         }
 
+        /**
+        * @api [Post] /giaovien/TaoGV Tạo 1 SV mới
+        * @apigroup GV  
+        * @apiPermission none 
+        * 
+        * @apiParam [string] TenGV Ho Ten của gv mới
+        * @apiParam [int] [SoLuongLop] 
+        * 
+        * @apiParamExample [json] Request-Example:
+        * {
+        *   TenGV:"Nguyễn Thị A"
+        * }
+        * 
+        * @apiSuccess [string] TenGV Ho Ten của gv mới
+        * @apiSuccess [Id] Id của gv mới
+        * 
+        * @apiSuccessExample [json] Success-Response:
+        * {
+        *   Id:1,
+        *   TenGV:"Nguyễn Thị A"
+        * 
+        * }
+        * 
+        * @apiError [400] (string[]) Error các mảng lỗi
+        * 
+        * @apiErrorExample {json}
+        * {
+        *   "Errors":[
+        *       TenGV la bat buoc
+        *   
+        *   ]
+        * }
 
+        * */
         [HttpPost]
         public IHttpActionResult TaoGV(CreateGiaoVienModel model)
         {
