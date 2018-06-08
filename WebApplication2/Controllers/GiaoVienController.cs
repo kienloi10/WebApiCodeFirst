@@ -19,6 +19,33 @@ namespace WebApplication2.Controllers
 
         }
 
+        /**
+        * @api {GET} /giaovien/GetAll Lấy thông tin tất cả các gv
+        * @apiGroup GV 
+        * @apiPermission none
+        * 
+        * @apiSuccessExample {json} Response:
+        * [
+        *   {
+        *       
+        *       "HoTen": "Nguyễn Căn A",
+        *       
+        *   },
+        *   {
+        *      
+        *       "HoTen": "Nguyễn Thị A",
+        *       
+        *   }
+        *     
+        * ]
+        * 
+        * @apiError [400] {string[]} Errors Array of error
+        * @apiErrorExample {json} Error-Response:
+        * {
+        *      "Error":[        
+        *      ]
+        * }
+        */
         [HttpGet]
         public IHttpActionResult GetAll()
         {
@@ -30,7 +57,32 @@ namespace WebApplication2.Controllers
             return Ok(listgvs);
         }
 
-
+        /**
+        * @api {GET} /giaovien/GetById?Id=Id Lấy thông tin lớp theo Id
+        * @apiGroup GV
+        * @apiPermission none
+        * 
+        * @apiParam {int} Id Id của gv
+        * 
+        * @apiExample Example usage: 
+        * 
+        * /api/giaovien/GetById?Id=1
+        * 
+        * @apiSuccessExample {json} Response:
+        *   {
+        *       
+        *       "HoTen": "Nguyễn Căn A",
+        *       
+        *   }
+        * 
+        * @apiError [400] {string[]} Errors Array of error
+        * @apiErrorExample {json} Error-Response:
+        * {
+        *      "Error":[
+        *          "Không tìm thấy gv này!"
+        *      ]
+        * }
+        */
         [HttpGet]
         public IHttpActionResult GetById(int id)
         {
@@ -53,12 +105,11 @@ namespace WebApplication2.Controllers
         }
 
         /**
-        * @api [Post] /giaovien/TaoGV Tạo 1 SV mới
+        * @api [Post] /giaovien/TaoGV Tạo 1 Gv mới
         * @apigroup GV  
         * @apiPermission none 
         * 
-        * @apiParam [string] TenGV Ho Ten của gv mới
-        * @apiParam [int] [SoLuongLop] 
+        * @apiParam [string] TenGV Ho Ten của gv mới 
         * 
         * @apiParamExample [json] Request-Example:
         * {
@@ -119,6 +170,40 @@ namespace WebApplication2.Controllers
 
             return httpActionResult;
         }
+
+
+        /**
+         * @api {PUT} /giaovien/CapNhatGV Cập nhật thông tin một lớp
+         * @apiGroup GV
+         * @apiPermission none
+         * 
+         * @apiParam {int} Id Id gv cần cập nhật
+         * @apiParam {string} HoTen Tên của gv cần cập nhật
+         * 
+         * @apiParamExample {json} Request-Example:
+         * {
+         *   Id:1,
+         *   TenGV:"Nguyễn Thị A"
+         * 
+         * }
+         * 
+         * @apiSuccess {int} Id Id gv vừa cập nhật
+         * @apiSuccess {string} HoTen Tên của gv cần cập nhật
+         * @apiSuccessExample {json} Response:
+         * {
+         *   Id:1,
+         *   TenGV:"Nguyễn Thị A"
+         * 
+         * }
+         * 
+         * @apiError [400] {string[]} Errors Array of error
+         * @apiErrorExample {json} Error-Response:
+         * {
+         *      "Error":[
+         *          "Không tìm thấy gv này!"
+         *      ]
+         * }
+         */
 
         [HttpPut]
         public IHttpActionResult CapNhatGV(UpdateGiaoVienModel model)

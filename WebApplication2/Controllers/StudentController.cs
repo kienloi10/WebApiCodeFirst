@@ -20,6 +20,35 @@ namespace WebApplication2.Controllers
 
         }
 
+        /**
+        * @api {GET} /student/GetAll Lấy thông tin tất cả các sv
+        * @apiGroup SV 
+        * @apiPermission none
+        * 
+        * @apiSuccessExample {json} Response:
+        * [
+        *   {
+        *       "MaSV": "ABC",
+        *       "HoTenSV": "Nguyễn Căn A",
+        *       "TenLop": "CNTT1",
+        *       "DiaChi": "1 đường Số 7"
+        *   },
+        *   {
+        *       "MaSV": "ABCD",
+        *       "HoTenSV": "Nguyễn Thị A",
+        *       "TenLop": "CNTT2",
+        *       "DiaChi":"3 Lê Lợi"
+        *   }
+        *     
+        * ]
+        * 
+        * @apiError [400] {string[]} Errors Array of error
+        * @apiErrorExample {json} Error-Response:
+        * {
+        *      "Error":[        
+        *      ]
+        * }
+        */
         [HttpGet]
         public IHttpActionResult GetAll()
         {
@@ -34,6 +63,33 @@ namespace WebApplication2.Controllers
         }
 
 
+        /**
+        * @api {GET} /student/GetById?Id=Id Lấy thông tin lớp theo Id
+        * @apiGroup SV
+        * @apiPermission none
+        * 
+        * @apiParam {int} Id Id của sv  
+        * 
+        * @apiExample Example usage: 
+        * 
+        * /api/student/GetById?Id=1
+        * 
+        * @apiSuccessExample {json} Response:
+        *   {
+        *       "MaSV": "ABC",
+        *       "HoTenSV": "Nguyễn Căn A",
+        *       "TenLop": "CNTT1",
+        *       "DiaChi": "1 đường Số 7"
+        *   }
+        * 
+        * @apiError [400] {string[]} Errors Array of error
+        * @apiErrorExample {json} Error-Response:
+        * {
+        *      "Error":[
+        *          "Không tìm thấy lớp này!"
+        *      ]
+        * }
+        */
         [HttpGet]
         public IHttpActionResult GetById(int id)
         {
@@ -65,7 +121,6 @@ namespace WebApplication2.Controllers
         * @apiParam [string] MSSV Mã của sv mới
         * @apiParam [string] HoTen HoTen của sv mới
         * @apiParam [string] DiaChi DiaChi của sv mới
-        * @apiParam [int] [SoLuongLop] 
         * 
         * @apiParamExample [json] Request-Example:
         * {
@@ -137,6 +192,49 @@ namespace WebApplication2.Controllers
 
             return httpActionResult;
         }
+
+
+
+        /**
+         * @api {PUT} /student/CapNhatSV Cập nhật thông tin một sv
+         * @apiGroup SV
+         * @apiPermission none
+         * 
+         * @apiParam {int} Id Id lớp cần cập nhật
+         * @apiParam {string} TenLop Tên của lớp cần cập nhật
+         * @apiParam {string} MaLop Mã lớp của lớp cần cập nhật
+         * @apiParam {string} DiaChi Mã lớp của lớp cần cập nhật
+         * 
+         * @apiParamExample {json} Request-Example:
+         *   {
+        *       "MaSV": "ABC",
+        *       "HoTenSV": "Nguyễn Căn B",
+        *       "TenLop": "CNTT8",
+        *       "DiaChi":"3 Lê Lợi"
+        *       
+        *   }
+         * 
+         * @apiSuccess {int} Id Id lớp vừa cập nhật
+         * @apiSuccess {string} TenLop Tên của lớp vừa cập nhật
+         * @apiSuccess {string} MaLop Mã lớp của lớp vừa cập nhật
+         * 
+         * @apiSuccessExample {json} Response:
+         *   {
+        *       "MaSV": "ABC",
+        *       "HoTenSV": "Nguyễn Căn B",
+        *       "TenLop": "CNTT8",
+        *       "DiaChi":"3 Lê Lợi"
+        *       
+        *   }
+         * 
+         * @apiError [400] {string[]} Errors Array of error
+         * @apiErrorExample {json} Error-Response:
+         * {
+         *      "Error":[
+         *          "Không tìm thấy lớp này!"
+         *      ]
+         * }
+         */
 
         [HttpPut]
         public IHttpActionResult CapNhatSV(UpdateStudentModel model)

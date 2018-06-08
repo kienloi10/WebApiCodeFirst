@@ -17,6 +17,99 @@ namespace WebApplication2.Controllers
 			this._db = new ApiDBContext();
 
 		}
+
+        /**
+        * @api {GET} /class/GetAll Lấy thông tin tất cả các lớp
+        * @apiGroup LOP 
+        * @apiPermission none
+        * 
+        * @apiSuccessExample {json} Response:
+        * [
+        *   {
+        *       "Id": 1,
+        *       "MaLop": "C12",
+        *       "TenLop": "CNTT1"
+        *   },
+        *   {
+        *       "Id": 2,
+        *       "MaLop": "A13",
+        *       "TenLop": "CNTT5"
+        *   }
+        *     
+        * ]
+        * 
+        * @apiError [400] {string[]} Errors Array of error
+        * @apiErrorExample {json} Error-Response:
+        * {
+        *      "Error":[        
+        *      ]
+        * }
+        */
+
+        [HttpGet]
+		public IHttpActionResult GetAll()
+		{
+                var listLops = this._db.Lops.Select(x => new ClassModel()
+                {                  
+                    MaLop = x.MaLop,
+                    TenLop = x.TenLop,
+                    Id = x.Id,
+                });
+			return Ok(listLops);
+		}
+
+
+
+        /**
+        * @api {GET} /class/GetById?Id=Id Lấy thông tin lớp theo Id
+        * @apiGroup LOP
+        * @apiPermission none
+        * 
+        * @apiParam {int} Id Id của lớp
+        * 
+        * @apiExample Example usage: 
+        * 
+        * /api/class/GetById?Id=1
+        * 
+        * @apiSuccessExample {json} Response:
+        *  {
+        *       "Id": 1,
+        *       "MaLop": "C12",
+        *       "TenLop": "CNTT1"
+        *   }
+        * 
+        * @apiError [400] {string[]} Errors Array of error
+        * @apiErrorExample {json} Error-Response:
+        * {
+        *      "Error":[
+        *          "Không tìm thấy lớp này!"
+        *      ]
+        * }
+        */
+
+
+
+        [HttpGet]
+        public IHttpActionResult GetById(int id)
+        {
+            IHttpActionResult httpActionResult;
+            var lop = _db.Lops.FirstOrDefault(x => x.Id == id);
+
+            if (lop == null)
+            {
+                ErrorModel errors = new ErrorModel();
+                errors.Add("Không tìm thấy lớp");
+
+                httpActionResult = Ok(errors);
+            }
+            else
+            {
+                httpActionResult = Ok(new ClassModel(lop));
+            }
+
+            return httpActionResult;
+        }
+
         /**
         * @api [Post] /Class/TaoLop Tạo 1 lớp mới
         * @apigroup LOP
@@ -56,42 +149,6 @@ namespace WebApplication2.Controllers
         * }
 
         * */
-
-
-        [HttpGet]
-		public IHttpActionResult GetAll()
-		{
-                var listLops = this._db.Lops.Select(x => new ClassModel()
-                {                  
-                    MaLop = x.MaLop,
-                    TenLop = x.TenLop,
-                    Id = x.Id,
-                });
-			return Ok(listLops);
-		}
-
-        [HttpGet]
-        public IHttpActionResult GetById(int id)
-        {
-            IHttpActionResult httpActionResult;
-            var lop = _db.Lops.FirstOrDefault(x => x.Id == id);
-
-            if (lop == null)
-            {
-                ErrorModel errors = new ErrorModel();
-                errors.Add("Không tìm thấy lớp");
-
-                httpActionResult = Ok(errors);
-            }
-            else
-            {
-                httpActionResult = Ok(new ClassModel(lop));
-            }
-
-            return httpActionResult;
-        }
-
-
         [HttpPost]
         public IHttpActionResult TaoLop(CreateClassModel model)
         {
@@ -130,6 +187,44 @@ namespace WebApplication2.Controllers
 
             return httpActionResult;
         }
+
+
+
+        /**
+         * @api {PUT} /class/CapNhatLop Cập nhật thông tin một lớp
+         * @apiGroup LOP
+         * @apiPermission none
+         * 
+         * @apiParam {int} Id Id lớp cần cập nhật
+         * @apiParam {string} MaLop Mã lớp của lớp cần cập nhật
+         * @apiParam {string} TenLop Tên của lớp cần cập nhật
+         * 
+         * @apiParamExample {json} Request-Example:
+         * {
+         *      "Id": 1,
+         *      "TenLop": "CNTT",
+         *      "MaLop": "D14"
+         * }
+         * 
+         * @apiSuccess {int} Id Id lớp vừa cập nhật
+         * @apiSuccess {string} TenLop Tên của lớp vừa cập nhật
+         * @apiSuccess {string} MaLop Mã lớp của lớp vừa cập nhật
+         * 
+         * @apiSuccessExample {json} Response:
+         * {
+         *      "Id": 1,
+         *      "TenLop": "CNTT",
+         *      "MaLop": "D14"
+         * }
+         * 
+         * @apiError [400] {string[]} Errors Array of error
+         * @apiErrorExample {json} Error-Response:
+         * {
+         *      "Error":[
+         *          "Không tìm thấy lớp này!"
+         *      ]
+         * }
+         */
 
         [HttpPut]
         public IHttpActionResult CapNhatLop(UpdateClassModel model)
